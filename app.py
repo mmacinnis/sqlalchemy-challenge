@@ -56,12 +56,12 @@ def homepage():
 
 @app.route('/api/v1.0/precipitation')
 def precipitation():
-    # TODO: Open session
+    
     session = Session(engine)
 
     results = session.query(measurement.date, measurement.prcp).all()
     
-    # TODO: Close session
+    
     session.close()
 
     precipitation_inclusive = []
@@ -78,12 +78,12 @@ def precipitation():
 
 @app.route('/api/v1.0/stations')
 def stations():
-    # TODO: Open session
+    
     session = Session(engine)
 
     results = session.query(station.station).all()
     
-    # TODO: Close session
+    
     session.close()
 
     return jsonify(list(np.ravel(results)))
@@ -93,7 +93,7 @@ def stations():
 
 @app.route('/api/v1.0/tobs')
 def tobs():
-    # TODO: Open session
+    
     session = Session(engine)
 
     most_active_stations = (session
@@ -140,13 +140,13 @@ def tobs():
 @app.route('/api/v1.0/<start_date>')
 def start_date(start_date):
     try:
-        # * Convert the input date string to a datetime object
+        # Convert the input date string to a datetime object
         start = dt.datetime.strptime(start_date, '%Y-%m-%d').date()
 
-        # TODO: Open session
+        
         session = Session(engine)
 
-        # * Query the results from start date onwards based on a user start date
+        # Query the results from start date onwards based on a user start date
         results = (session.query(
             func.min(measurement.tobs).label('min'),
             func.avg(measurement.tobs).label('avg'),
@@ -155,7 +155,7 @@ def start_date(start_date):
         .group_by(measurement.date)
         .all())
 
-        # TODO: Close session
+        
         session.close()
 
         result_dict = []
@@ -184,7 +184,7 @@ def start_end(start_date, end):
         start = dt.datetime.strptime(start_date, '%Y-%m-%d').date()
         end_date = dt.datetime.strptime(end, '%Y-%m-%d').date()
 
-        # TODO: Open session
+        
         session = Session(engine)
 
         # Query the results based on two parameters: the start and end periods that a user provides. 
