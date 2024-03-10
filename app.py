@@ -13,8 +13,7 @@ from flask import Flask, jsonify
 
 # Database Setup
 
-path = "Resources/hawaii.sqlite"
-engine = create_engine(f"sqlite:///{path}")
+engine = create_engine(f"sqlite:///Resources/hawaii.sqlite")
 
 
 # reflect an existing database into a new model
