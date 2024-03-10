@@ -41,7 +41,7 @@ app = Flask(__name__)
 @app.route("/") 
 @app.route('/home')
 def homepage():
-    # * Listing avaiable API roots
+    # * Listing avaiable API routes
     return (
         f"Available Routes:<br/>"
         f"/api/v1.0/precipitation<br/>"
