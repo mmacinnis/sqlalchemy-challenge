@@ -13,7 +13,7 @@ from flask import Flask, jsonify
 
 # Database Setup
 
-path = "/Users/galbeeir/Desktop/git/sqlalchemy_challenge/Starter_Code/SurfsUp/Resources/hawaii.sqlite"
+path = "Resources/hawaii.sqlite"
 engine = create_engine(f"sqlite:///{path}")
 
 
